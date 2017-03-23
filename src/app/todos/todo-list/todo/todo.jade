@@ -1,0 +1,4 @@
+div
+	span() {{$ctrl.item}}
+	button(type='button', ng-click='$ctrl.onChange({ $event: { todo: $ctrl.item } });') Done
+	button(type='button', ng-click='$ctrl.onRemove({ $event: { todo: $ctrl.item } });') Delete
