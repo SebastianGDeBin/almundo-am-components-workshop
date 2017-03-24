@@ -9,7 +9,7 @@
 				onComplete:'&',
 				onDelete:'&'
 			},
-			template:"todos/todo-list/todo-list.html"
+			templateUrl:"todos/todo-list/todo-list.html"
 		});
 		
-});
+})();

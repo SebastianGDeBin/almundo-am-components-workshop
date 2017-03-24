@@ -8,7 +8,7 @@
 			bindings:{
 				onAdd:'&'
 			},
-			template:"todos/todo-form/todo-form.html"
+			templateUrl:"todos/todo-form/todo-form.html"
 		});
 
 
@@ -21,6 +21,7 @@
 		};
 
 		this.submit = function(label){
+			if(!this.label) return;
 			this.onAdd({
 				$event: {label: this.label}
 			});
@@ -31,7 +32,7 @@
 
 		};
 
-		this.$onChange = function(){
+		this.$onChange = function(changes){
 
 		};
 
@@ -39,4 +40,4 @@
 			
 		};
 	};
-});
+})();

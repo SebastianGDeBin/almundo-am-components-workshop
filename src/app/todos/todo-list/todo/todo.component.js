@@ -1,4 +1,4 @@
-(function () {
+(function() {
 	'use strict';
 
 	angular
@@ -9,7 +9,7 @@
 				onChange:'&',
 				onRemove: '&'
 			},
-			template:"todos/todo-list/todo/todo.html"
+			templateUrl:"todos/todo-list/todo/todo.html"
 		}
 			);
 		}
