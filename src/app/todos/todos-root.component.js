@@ -4,7 +4,7 @@
 		.component('todosRoot',{
 			controller: TodosController,
 
-			templateUrl:'todos/todo-root.html'
+			templateUrl:'todos/todos-root.html'
 		});
 	TodosController.$inject = ['TodosService'];
 

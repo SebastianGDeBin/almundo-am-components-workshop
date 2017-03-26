@@ -12,9 +12,9 @@
 		});
 
 
-	TodoFormController.$inject = []; /*VER ESTO*/
+	TodoFormController.$inject = [];
 
-	function TodoFormController(){
+	function TodoFormController() {
 
 		this.$onInit = function(){
 
@@ -39,5 +39,5 @@
 		this.$onDestroy = function(){
 			
 		};
-	};
+	}
 })();

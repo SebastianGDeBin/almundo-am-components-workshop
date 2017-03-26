@@ -10,6 +10,5 @@
 				onRemove: '&'
 			},
 			templateUrl:"todos/todo-list/todo/todo.html"
-		}
-			);
+		});
 })();
