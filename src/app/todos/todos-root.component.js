@@ -24,7 +24,7 @@
 			var todo = $event.todo;
 
 			_self.todos = _self.todos.filter(function(item){
-				return todo.id !=== item.id;
+				return todo.id !== item.id;
 			});
 		};
 

@@ -1,5 +1,5 @@
 {
-  "name": "am-components-workshop",
+  "name": "almundo-am-components-workshop",
   "version": "1.0.0",
   "description": "Another one...",
   "main": "index.js",
@@ -38,6 +38,7 @@
     "stream-series": "^0.1.1"
   },
   "dependencies": {
-    "gulp-concat": "^2.6.1"
+    "gulp-concat": "^2.6.1",
+    "pug": "^2.0.0-beta11"
   }
 }
