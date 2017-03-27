@@ -16,11 +16,7 @@
 
 	function TodoFormController() {
 
-		this.$onInit = function(){
-
-		};
-
-		this.submit = function(label){
+		this.submit = function(){
 			if(!this.label) return;
 			this.onAdd({
 				$event: {label: this.label}
@@ -28,16 +24,5 @@
 			this.label = '';
 		};
 
-		this.$postLink = function (){
-
-		};
-
-		this.$onChange = function(changes){
-
-		};
-
-		this.$onDestroy = function(){
-			
-		};
 	}
 })();

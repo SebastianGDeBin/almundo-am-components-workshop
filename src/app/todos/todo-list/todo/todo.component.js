@@ -6,8 +6,8 @@
 		.component('todo',{
 			bindings: {
 				item: '<',
-				onChange:'&',
-				onRemove: '&'
+				onComplete:'&',
+				onDelete: '&'
 			},
 			templateUrl:"todos/todo-list/todo/todo.html"
 		});

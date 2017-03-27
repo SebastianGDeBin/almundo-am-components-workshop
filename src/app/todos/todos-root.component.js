@@ -3,6 +3,9 @@
 		.module('todos')
 		.component('todosRoot',{
 			controller: TodosController,
+			require:{
+
+			},
 
 			templateUrl:'todos/todos-root.html'
 		});
@@ -12,7 +15,7 @@
 
 		var _self = this;
 
-		this.completeTodo = function($event){
+		this.onComplete = function($event){
 			var todo = $event.todo;
 
 			_self.todos = _self.todos.map(function(item){
@@ -20,18 +23,25 @@
 			});
 		};
 
-		this.removeTodo = function($event){
+		this.onDelete = function($event){
 			var todo = $event.todo;
 
 			_self.todos = _self.todos.filter(function(item){
 				return todo.id !== item.id;
 			});
+
+			// var id = $event.id;
+			// TodosService.removeTodo(id);
+			// volver a pedir los todo con el getTodos 
+			// o de la lista que tengo aca buscar el id y borrarlo con un filter
+			// var idx = _self.todos. find ((todo) => todo.id === id);
+			// this.todos.splice(idx,1);
 		};
 
 		this.addTodo = function($event){
 			var label = $event.label;
 
-			_self.todos.push({label, id: _self.todos.length + 1});
+			_self.todos.push({label: label, id: _self.todos.length + 1});
 		};
 
 		this.$onInit = function(){

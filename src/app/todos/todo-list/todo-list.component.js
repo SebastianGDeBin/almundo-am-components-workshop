@@ -10,6 +10,5 @@
 				onDelete:'&'
 			},
 			templateUrl:"todos/todo-list/todo-list.html"
-		});
-		
+		});		
 })();
