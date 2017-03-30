@@ -17,18 +17,15 @@
 
 		this.onComplete = function($event){
 			var todo = $event.todo;
-
-			_self.todos = _self.todos.map(function(item){
-				return item.id === todo.id ? Object.assign({}, item, {complete: true}) : item
-			});
+			_self.todos = TodosService.onComplete(todo);
 		};
 
 		this.onDelete = function($event){
-			var todo = $event.todo;
-
-			_self.todos = _self.todos.filter(function(item){
-				return todo.id !== item.id;
-			});
+			var id = $event.todo.id;
+			_self.todos = TodosService.onDelete(id);
+			// var id = $event.todo.id
+			// TodosService.onDelete(id);
+			// _self.todos = _self.todos.filter(function (item) {return id !== item.id  });
 
 			// var id = $event.id;
 			// TodosService.removeTodo(id);
@@ -40,25 +37,12 @@
 
 		this.addTodo = function($event){
 			var label = $event.label;
-
-			_self.todos.push({label: label, id: _self.todos.length + 1});
+			_self.todos = TodosService.addTodo(label);
 		};
 
 		this.$onInit = function(){
-			_self.todos = TodosService.getTodos();
-		};
-
-		this.$onChanges = function(changes){
-
-		};
-
-		this.$postLink = function(){
-
-		};
-
-		this.$onDestroy = function(){
-
-		};
+            _self.todos = TodosService.getTodos();
+        };
 
 	}
 
