@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prestart": "gulp",
-    "start": "lite-server -c bs-config.json"
+    "start": "node server/"
   },
   "repository": {
     "type": "git",
@@ -38,6 +37,8 @@
     "stream-series": "^0.1.1"
   },
   "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
     "gulp-concat": "^2.6.1",
     "pug": "^2.0.0-beta11"
   }

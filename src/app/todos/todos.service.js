@@ -37,9 +37,10 @@
         }
 
         function onComplete(todo) {
-            return this.listTodo = this.listTodo.map(function(item){
+            this.listTodo = this.listTodo.map(function(item){
                 return item.id === todo.id ? Object.assign({}, item, {complete: true}) : item
             });
+            return this.listTodo;
         }
         
         function onDelete(id) {
