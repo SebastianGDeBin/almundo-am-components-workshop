@@ -5,32 +5,36 @@
 		.module('todos')
 		.service('TodosService', TodosService);
 
-	TodosService.$inject = [];
+	TodosService.$inject = ['$http'];
 
-	function TodosService(){
+	function TodosService($http){
 		this.getTodos = getTodos;
 		this.addTodo = addTodo;
 		this.onComplete = onComplete;
 		this.onDelete = onDelete;
-		
-		this.listTodo = [{
-            label:'estudiar',
-            id:0,
-            complete: false
-        }, {
-            label:'comer',
-            id: 1,
-            complete: true
-        }, {
-            label:'dormir',
-            id:3,
-            complete: false
-        }];
+
+		// this.listTodo = [{
+    //         label:'estudiar',
+    //         id:0,
+    //         complete: false
+    //     }, {
+    //         label:'comer',
+    //         id: 1,
+    //         complete: true
+    //     }, {
+    //         label:'dormir',
+    //         id:3,
+    //         complete: false
+    //     }];
 
 		function getTodos (){
-			return this.listTodo;
+			return $http.get('/api/todos')
+        .then(function (response) {
+            return response.data;
+        });
+			//return this.listTodo;
 		}
-		
+
 		function addTodo(label) {
            this.listTodo.push({label: label, id: this.listTodo.length + 1});
            return this.listTodo;
@@ -42,7 +46,7 @@
             });
             return this.listTodo;
         }
-        
+
         function onDelete(id) {
             this.listTodo = this.listTodo.filter(function(item){
                 return id !== item.id;

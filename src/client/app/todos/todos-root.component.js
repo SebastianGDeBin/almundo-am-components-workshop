@@ -16,7 +16,11 @@
 		var _self = this;
 
         this.$onInit = function(){
-            _self.todos = TodosService.getTodos();
+            TodosService.getTodos().then(function successCallback(response) {
+      				_self.todos = response;
+      			}, function errorCallback(error) {
+      				console.log(error);
+      			});
         };
 
 		this.onComplete = function($event){
