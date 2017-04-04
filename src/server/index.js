@@ -24,4 +24,4 @@ app.use('/static', express.static('build'));
 
 app.listen(PORT, ()=>{
    console.log("Server running on " + PORT);
-});
+})

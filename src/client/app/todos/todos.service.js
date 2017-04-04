@@ -13,19 +13,6 @@
 		this.onComplete = onComplete;
 		this.onDelete = onDelete;
 
-		// this.listTodo = [{
-    //         label:'estudiar',
-    //         id:0,
-    //         complete: false
-    //     }, {
-    //         label:'comer',
-    //         id: 1,
-    //         complete: true
-    //     }, {
-    //         label:'dormir',
-    //         id:3,
-    //         complete: false
-    //     }];
 
 		function getTodos (){
 			return $http.get('/api/todos')
@@ -39,6 +26,13 @@
            this.listTodo.push({label: label, id: this.listTodo.length + 1});
            return this.listTodo;
         }
+
+        // function addTodo(label) {
+        //     return $http.post('/api/todos/')
+        //         .then(function (response) {
+        //             return response.data;
+        //         });
+        // }
 
         function onComplete(todo) {
             this.listTodo = this.listTodo.map(function(item){
