@@ -5,21 +5,34 @@ const express = require('express');
 const app = express();
 const PORT = 8080;
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const path = require('path');
 
-// API routes
-app.use('/api/todos', require('./todos/todos-routes'));
+//Connect to Database
+mongoose.connect('mongodb://localhost/todos');
 
+//Get the default connection
+const db = mongoose.connection;
+
+//Bind connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'mongoDB connection error:'));
+
+//db.on('error', function () {
+//    throw Error();
+//});
+
+// API routes Async
+app.use('/static', express.static('./build'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use('/static', express.static('build'));
 
+app.use('/api/todos', require('./todos/todos-routes'));
 
-// app.get('/:greeting',(req,res,next)=>{
-//     const {greeting} =  req.params;
-//     const {to} =  req.query;
-//     res.status(200).send(  greeting +" - "+to);
-// });
+//App Routes
+app.use('/',function (req, res, next) {
+    res.sendFile(path.join(__dirname + '/../../build/index.html'));
+});
 
 
 app.listen(PORT, ()=>{

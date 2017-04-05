@@ -16,23 +16,15 @@
 
 		function getTodos (){
 			return $http.get('/api/todos')
-        .then(function (response) {
-            return response.data;
-        });
-			//return this.listTodo;
+                .then(function (response) {
+                    return response.data;
+                });
 		}
 
 		function addTodo(label) {
            this.listTodo.push({label: label, id: this.listTodo.length + 1});
            return this.listTodo;
         }
-
-        // function addTodo(label) {
-        //     return $http.post('/api/todos/')
-        //         .then(function (response) {
-        //             return response.data;
-        //         });
-        // }
 
         function onComplete(todo) {
             this.listTodo = this.listTodo.map(function(item){
