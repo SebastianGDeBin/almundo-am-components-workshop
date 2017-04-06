@@ -6,6 +6,10 @@ class TodoService{
     static get(){
         return TodoModel.find();
     }
+
+    static addTodo(label){
+
+    }
 }
 
 module.exports = TodoService;

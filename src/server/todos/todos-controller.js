@@ -18,6 +18,15 @@ class TodosController{
       //        res.json(todos);
       //    });
   }
+
+  static addTodo (req, res, netx){
+
+      TodosService.addTodo(req.label)
+          .then(function (todos) {
+              res.json(todos);
+          });
+
+  }
 }
 
 module.exports = TodosController;

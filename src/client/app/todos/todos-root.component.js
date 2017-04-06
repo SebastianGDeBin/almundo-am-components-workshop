@@ -33,20 +33,15 @@
 			_self.todos = TodosService.onDelete(id);
 		};
 
-		this.addTodo = function($event){
-			var label = $event.label;
-			_self.todos = TodosService.addTodo(label);
-		};
 
-        // this.addTodo = function($event){
-        //     var label = $event.label;
-        //     TodosService.addTodo(label).then(function successCallback(response) {
-        //         _self.todos = response;
-        //     }, function errorCallback(error) {
-        //         console.log(error);
-        //     });
-        //     // _self.todos = TodosService.addTodo(label);
-        // };
+        this.addTodo = function($event){
+            var label = $event.label;
+            TodosService.addTodo(label).then(function successCallback(response) {
+                _self.todos = response;
+            }, function errorCallback(error) {
+                console.log(error);
+            });
+        };
 	}
 
 })();

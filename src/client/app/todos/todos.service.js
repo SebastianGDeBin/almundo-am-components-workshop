@@ -22,8 +22,12 @@
 		}
 
 		function addTodo(label) {
-           this.listTodo.push({label: label, id: this.listTodo.length + 1});
-           return this.listTodo;
+           // this.listTodo.push({label: label, id: this.listTodo.length + 1});
+           // return this.listTodo;
+           return $http.post('/api/todos', label).
+               then(function (response) {
+              return response.data;
+           });
         }
 
         function onComplete(todo) {
