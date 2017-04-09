@@ -16,9 +16,9 @@
 		var _self = this;
 
         this.$onInit = function(){
-            TodosService.getTodos().then(function successCallback(response) {
+            TodosService.getTodos().then(function done(response) {
       				_self.todos = response;
-      			}, function errorCallback(error) {
+      			}, function fail(error) {
       				console.log(error);
       			});
         };
@@ -36,7 +36,9 @@
 
         this.addTodo = function($event){
             var label = $event.label;
+            console.log("pase por el ctrl1 componenet");
             TodosService.addTodo(label).then(function successCallback(response) {
+                console.log("pase por el ctrl2");
                 _self.todos = response;
             }, function errorCallback(error) {
                 console.log(error);

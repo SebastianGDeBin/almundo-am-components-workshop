@@ -7,8 +7,15 @@ class TodoService{
         return TodoModel.find();
     }
 
-    static addTodo(label){
+    static add(label){
+        var newTodo = new TodoModel();
 
+        newTodo.label = label;
+        newTodo.complete = false;
+
+        TodoModel.insert(newTodo);
+        console.log("pase por el service antes de devolver la lista");
+        return TodoModel.find();
     }
 }
 

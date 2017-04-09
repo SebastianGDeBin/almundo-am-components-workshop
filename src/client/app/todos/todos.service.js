@@ -15,17 +15,18 @@
 
 
 		function getTodos (){
-			return $http.get('/api/todos')
+			return $http.get('/todos')
                 .then(function (response) {
                     return response.data;
                 });
 		}
 
 		function addTodo(label) {
-           // this.listTodo.push({label: label, id: this.listTodo.length + 1});
-           // return this.listTodo;
-           return $http.post('/api/todos', label).
+            console.log("pase por el todo.service");
+            console.log("mostrar el label" + label);
+           return $http.post('/todos', label).
                then(function (response) {
+               console.log("pase por el todo.service adentro del then");
               return response.data;
            });
         }
