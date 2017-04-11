@@ -16,34 +16,43 @@
 		var _self = this;
 
         this.$onInit = function(){
-            TodosService.getTodos().then(function done(response) {
+            TodosService.getTodos()
+				.then(function success(response) {
       				_self.todos = response;
-      			}, function fail(error) {
+      			}, function error(error) {
       				console.log(error);
       			});
         };
 
+        this.addTodo = function($event){
+            TodosService.addTodo($event)
+                .then(function success(response) {
+                    _self.todos = response;
+                }, function error(error) {
+                    console.log(error);
+                });
+        };
+
 		this.onComplete = function($event){
-			var todo = $event.todo;
-			_self.todos = TodosService.onComplete(todo);
+			TodosService.onComplete($event)
+				.then(function success(response) {
+					_self.todos = response;
+				}, function error(error) {
+					console.log(error);
+				});
 		};
+
 
 		this.onDelete = function($event){
-			var id = $event.todo.id;
-			_self.todos = TodosService.onDelete(id);
+            console.log("ctrl root");
+			TodosService.onDelete($event)
+				.then(function success(response){
+					_self.todos = response;
+				}, function error(error){
+					console.log(error);
+				});
 		};
 
-
-        this.addTodo = function($event){
-            var label = $event.label;
-            console.log("pase por el ctrl1 componenet");
-            TodosService.addTodo(label).then(function successCallback(response) {
-                console.log("pase por el ctrl2");
-                _self.todos = response;
-            }, function errorCallback(error) {
-                console.log(error);
-            });
-        };
 	}
 
 })();

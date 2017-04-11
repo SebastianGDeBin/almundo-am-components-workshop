@@ -21,28 +21,32 @@
                 });
 		}
 
-		function addTodo(label) {
-            console.log("pase por el todo.service");
-            console.log("mostrar el label" + label);
-           return $http.post('/todos', label).
-               then(function (response) {
-               console.log("pase por el todo.service adentro del then");
-              return response.data;
-           });
+		function addTodo(todo) {
+           return $http.post('/todos', todo)
+               .then(function (response) {
+                   return response.data;
+               });
         }
 
-        function onComplete(todo) {
-            this.listTodo = this.listTodo.map(function(item){
-                return item.id === todo.id ? Object.assign({}, item, {complete: true}) : item
-            });
-            return this.listTodo;
+        function onComplete(event) {
+            console.log("todosservice");
+            console.log(event);
+            console.log(event.todo);
+            return $http.put('/todos',event.todo)
+                .then(function(response){
+                    return response.data;
+                });
         }
 
-        function onDelete(id) {
-            this.listTodo = this.listTodo.filter(function(item){
-                return id !== item.id;
-            });
-            return this.listTodo;
+        function onDelete(event) {
+            console.log("todosservice");
+            console.log(event);
+            console.log(event.todo);
+
+            return $http.delete('/todos',event.todo)
+                .then(function(response){
+                    return response.data;
+                });
         }
 	}
 })();
