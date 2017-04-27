@@ -29,9 +29,6 @@
         }
 
         function onComplete(event) {
-            console.log("todosservice");
-            console.log(event);
-            console.log(event.todo);
             return $http.put('/todos',event.todo)
                 .then(function(response){
                     return response.data;
@@ -39,11 +36,7 @@
         }
 
         function onDelete(event) {
-            console.log("todosservice");
-            console.log(event);
-            console.log(event.todo);
-
-            return $http.delete('/todos',event.todo)
+            return $http.delete(`/todos?label=${event.todo.label}`)
                 .then(function(response){
                     return response.data;
                 });

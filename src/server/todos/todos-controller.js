@@ -28,9 +28,7 @@ class TodosController{
   }
 
   static onDelete(req, res, next){
-      console.log("todos ctrl reqbody");
-      console.log(req.body.label);
-      TodosService.delete(req.body.label)
+      TodosService.delete(req.query.label)
           .then(function (todos) {
               res.json(todos);
           })

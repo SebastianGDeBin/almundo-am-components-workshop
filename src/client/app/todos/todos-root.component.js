@@ -44,7 +44,6 @@
 
 
 		this.onDelete = function($event){
-            console.log("ctrl root");
 			TodosService.onDelete($event)
 				.then(function success(response){
 					_self.todos = response;

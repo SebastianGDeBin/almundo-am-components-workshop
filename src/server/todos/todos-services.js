@@ -30,7 +30,6 @@ class TodoService{
     }
 
     static delete(label){
-        console.log("todos service mongo");
         TodoModel.collection.remove({"label": label});
         return TodoModel.find();
     }
